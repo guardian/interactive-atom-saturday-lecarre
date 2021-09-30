@@ -1,0 +1,397 @@
+@import "fonts";
+// @import "enhanced_fonts";
+@import "mq";
+@import "palette";
+// @import "enhancer";
+// gu_grid pulls the css for gs-container and content__main-column
+@import "gu_grid";
+
+$black: #121212;
+$audioBackground:#fff;
+$primaryColor:#F3D7B2;
+
+.interactive-atom {
+    margin: 0;
+    padding: 0;
+}
+
+// for apps adds extra padding. Needed to make dark mode work
+.ios, .android {
+    .interactive-atom {
+        padding: 8px;
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+.header__wrapper {
+    height: 90vh;
+    background: $primaryColor;
+    overflow: hidden;
+        .header__inner {
+            display: flex;
+            flex-direction: column-reverse;
+            @include mq(desktop) {
+                height: 100%;
+                flex-direction: row;
+            }
+        .left {
+            display: flex;
+            position: absolute;
+            left: 10px;
+            bottom: 20px;
+            z-index: 4;
+            top: 65vh;
+            flex-direction: column;
+            @include mq(mobileLandscape) {
+                left: 20px;
+            }
+            @include mq(desktop) {
+                position: relative;
+                top: 0;
+                width: 40%;
+            }
+            h1 {
+                color: white;
+                font-family: $f-titlepiece;
+                font-size: 52px;
+                margin: auto 0;
+                width: 90%;
+                top: unset;
+                @include mq(desktop) {
+                    color: $black;
+                }
+            }
+            .standfirst {
+                font-family:$f-headline-full;
+                font-weight: 400;
+                border-top: 1px solid $black;
+                background: $black;
+                padding: 0 10px;
+                @include mq(mobileLandscape) {
+                    padding: 0 20px;
+                }
+                @include mq(desktop) {
+                    background-color: transparent;
+                    padding-left: unset;
+                }
+                @include mq(leftCol) {
+                    display: flex;
+                }
+                &__tag {
+                    @include mq(leftCol) {
+                        width: 160px;
+                    }
+                    @include mq(wide) {
+                        width: 260px;
+                    }
+                    p {
+                        font-size: 20px;
+                        font-family:$f-headline-full;
+                        font-weight: bold;
+                        color: $black;
+                        background-color: white;
+                        width: max-content;
+                        padding: 2px 10px;
+                        margin-left: -10px;
+                        margin-bottom: 4px;
+                        @include mq(mobileLandscape) {
+                            margin-left:0;
+                        }
+                        @include mq(desktop) {
+                            font-size: 20px;
+                            margin-left: 0;
+                        }
+                    }
+                }
+                &__inner {
+                    font-family:$f-headline-full;
+                    font-weight: 400;
+                    margin-right: 20px;
+                    font-size: 20px;
+                    line-height: 115%;
+                    padding-bottom: 40px;
+                    margin-bottom: 0;
+                    padding-top: 2px;
+                    @include mq(desktop) {
+                        width: 300px;
+                    }
+                    @include mq(leftCol) {
+                        border-left: 1px solid $black;
+                        padding-left: 10px;
+                    }
+                }
+                &__byline {
+                    color: $black;
+                    a {
+                        text-decoration: none;
+                        color: $black;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+        .right {
+            overflow: hidden;
+            position: relative;
+            @include mq(desktop) {
+                width: 60%;
+            }
+            .rain-wrapper {
+                @include mq(desktop) {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    z-index: 1000;  
+                }
+            }
+            img {
+                width: 100%;
+                height: 90vh;
+                object-fit: cover;
+                object-position: center;
+                position: absolute;
+                @include mq(desktop) {
+                    height: 100%;
+                    // position: relative;
+                }
+
+                opacity:0;
+                &.frame-one {
+                    opacity:1;
+                }
+                &.frame-two {
+                    animation-name: fadeIn;
+                    animation-duration: 0.5s;
+                    animation-delay: 1s;
+                    animation-fill-mode: forwards;
+                }
+                &.frame-three {
+                    animation-name: fadeIn;
+                    animation-duration: 0.5s;
+                    animation-delay: 2s;
+                    animation-fill-mode: forwards;
+                }
+            }
+        }
+    }
+}
+
+audio {
+    width: 100%;
+    &::-webkit-media-controls-timeline {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+    &::-webkit-media-controls-panel {
+        background: $primaryColor;
+        border-radius: none;
+    }
+    &::-webkit-media-controls-panel {
+        padding: 0;
+    }
+    &::-webkit-media-controls-current-time-display, &::-webkit-media-controls-time-remaining-display {
+        font-family: $f-sans-serif-text;
+    }
+}
+
+.content__wrapper {
+    position: relative;
+    .stick-me {
+        position: sticky;
+        top: 0;
+        z-index: 3;
+    }
+    .audio-label {
+        background: $primaryColor;
+        border-top: 1px solid $black;
+        padding-bottom: 8px;
+        h3 {
+            font-family:$f-serif-headline;
+            font-size: 20px;
+            line-height: 115%;
+            font-weight: bold;
+            &:last-child {
+                font-weight: 500;
+            }
+        }
+    }
+    .audio-wrapper {
+        background: $primaryColor;
+        border-bottom: 1px solid $black;
+    }
+    p {
+        font-family:$f-serif-text;
+        line-height: 150%;
+        color: $black;
+        padding-bottom: 8px;
+        position: relative;
+        z-index: 2;
+        background-color: white;
+        margin:0 -10px;
+        padding: 0 10px 12px;     
+        @include mq(desktop) {
+            background-color: unset;
+            margin: unset;
+            padding: unset;
+        }   
+        &::first-letter {
+            margin-left: 20px;
+        }
+        &.dropcap-me:first-letter {
+            font-family: $f-titlepiece;
+            font-size: 120px;
+            line-height: 0.8;
+            font-weight: bold;
+            float: left;
+            margin-top: -1px;
+            margin-right: 8px;
+            margin-left: 0;
+            @include mq(desktop) {
+                margin-top: -12px;
+                line-height: 1;
+            }
+        }
+        
+    }
+    .inline-pic {
+        width: calc(100% + 20px);
+        height: 100%;
+        margin-left: -10px;
+        @include mq(desktop) {
+            float: left;
+            margin-right: 10px;
+            width: 60%;
+            margin-top: 4px;
+            margin-left: 0;
+        }
+        @include mq(leftCol) {
+            width: 70%;
+            margin-left: -150px;
+        }
+        @include mq(wide) {
+            width: 80%;
+            margin-left: -230px;
+        }
+        &.stick-me {
+            top: 0;
+            z-index: 1;
+            @include mq(desktop) {
+                position: relative;
+                top: unset;
+            }
+        }
+    }
+}
+
+
+
+  
+.rain {
+    position: absolute;
+    left: 0;
+    width: 160%;
+    height: 40%;
+    z-index: 2;
+    transform: rotate(15deg);
+}
+
+.rain.back-row {
+    display: none;
+    z-index: 1;
+    bottom: 60px;
+    opacity: 0.5;
+}
+
+.back-row-toggle .rain.back-row {
+    display: block;
+}
+
+.drop {
+    position: absolute;
+    bottom: 100%;
+    width: 100px;
+    height: 120px;
+    pointer-events: none;
+    animation: drop 0.5s linear infinite;
+}
+
+@keyframes drop {
+    0% {
+        transform: translateY(0vh);
+    }
+    75% {
+        transform: translateY(90vh);
+    }
+    100% {
+        transform: translateY(90vh);
+    }
+}
+
+.stem {
+    width: 5px;
+    height: 60%;
+    margin-left: 7px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
+    animation: stem 0.5s linear infinite;
+}
+
+@keyframes stem {
+    0% {
+        opacity: 1;
+    }
+    65% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.splat {
+    width: 15px;
+    height: 10px;
+    border-top: 2px dotted rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    opacity: 1;
+    transform: scale(0);
+    animation: splat 0.5s linear infinite;
+    display: none;
+}
+
+.splat-toggle .splat {
+    display: block;
+}
+
+@keyframes splat {
+    0% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    90% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
