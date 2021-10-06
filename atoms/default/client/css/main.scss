@@ -8,19 +8,18 @@
 
 $black: #121212;
 $audioBackground:#fff;
-$primaryColor:#F3D7B2;
+// $primaryColor:#fce1be;
+// $primaryColor:#E7D4B9;
+$primaryColor:#F9E7D3;
+$mainBackground:#FBF6EF;
+$red: #AB0613;
 
-.interactive-atom {
+.interactive-atom, .element, .element-atom {
     margin: 0;
     padding: 0;
 }
 
-// for apps adds extra padding. Needed to make dark mode work
-.ios, .android {
-    .interactive-atom {
-        padding: 8px;
-    }
-}
+
 
 
 @keyframes fadeIn {
@@ -32,10 +31,14 @@ $primaryColor:#F3D7B2;
     }
 }
 
+.interactive-wrapper {
+    background-color:$mainBackground;
+}
+
 .header__wrapper {
-    height: 90vh;
+    // height: 100vh;
     background: $primaryColor;
-    overflow: hidden;
+    // overflow: hidden;
         .header__inner {
             display: flex;
             flex-direction: column-reverse;
@@ -45,40 +48,94 @@ $primaryColor:#F3D7B2;
             }
         .left {
             display: flex;
-            position: absolute;
-            left: 10px;
-            bottom: 20px;
-            z-index: 4;
-            top: 65vh;
+            position: relative;
             flex-direction: column;
+            z-index: 4;
             @include mq(mobileLandscape) {
-                left: 20px;
+                // left: 20px;
             }
             @include mq(desktop) {
                 position: relative;
                 top: 0;
                 width: 40%;
             }
-            h1 {
-                color: white;
-                font-family: $f-titlepiece;
-                font-size: 52px;
-                margin: auto 0;
-                width: 90%;
-                top: unset;
+            .text-wrapper {
+                display: flex;
+                height: 70vh;
+                margin-bottom: -30vh;
+                margin-top: -160px;
+                div {
+                    @include mq(desktop) {
+                        margin: 40vh 0;
+                    }
+                } 
                 @include mq(desktop) {
-                    color: $black;
+                    height: 120vh;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+                h1 {
+                    color: white;
+                    font-family: $f-titlepiece;
+                    font-size: 56px;
+                    font-size: 18vw;
+                    line-height: 115%;
+                    width: 90%;
+                    top: unset;
+                    padding: 0 10px;
+
+                    
+                    @include mq(mobileLandscape) {
+                        padding: 0 20px;
+                    }
+                    @include mq(phablet) {
+                        font-size: 76px;
+                    }
+                    @include mq(desktop) {
+                        font-size: 84px;
+                        line-height: 115%;
+                        padding: 0;
+                        color: #121212;
+                        width: 442px;
+                        margin: 0;
+                    }
+                }
+                h2 {
+                    font-family:$f-headline-full;
+                    font-size: 24px;
+                    line-height: 115%;
+                    // font-weight: 300;  
+                    color: white;
+                    padding: 0 10px;
+                    max-width: 220px;
+                    margin-bottom: -4px;
+                    @include mq(mobileMedium) {
+                        max-width: unset;
+                    }
+                    @include mq(mobileLandscape) {
+                        padding: 0 20px;
+                    }  
+                    @include mq(desktop) {
+                        font-size: 28px;
+                        padding: 0;
+                        color: #121212;
+                    }  
+                    span {
+                        // color: $red;
+                        // font-weight: 500;
+                    }   
+                    &:nth-child(1) {
+                        font-style: italic;
+                    }
                 }
             }
             .standfirst {
                 font-family:$f-headline-full;
                 font-weight: 400;
                 border-top: 1px solid $black;
-                background: $black;
+                background: $primaryColor;
                 padding: 0 10px;
-                @include mq(mobileLandscape) {
-                    padding: 0 20px;
-                }
+                @include mq(tablet) {}
                 @include mq(desktop) {
                     background-color: transparent;
                     padding-left: unset;
@@ -87,26 +144,35 @@ $primaryColor:#F3D7B2;
                     display: flex;
                 }
                 &__tag {
+                    position: relative;
                     @include mq(leftCol) {
                         width: 160px;
+                        width: 146px;
+                        width: 152px;
                     }
                     @include mq(wide) {
                         width: 260px;
+                        width: 253px;
                     }
                     p {
                         font-size: 20px;
                         font-family:$f-headline-full;
                         font-weight: bold;
-                        color: $black;
-                        background-color: white;
+                        color: $primaryColor;
+                        background-color: $red;
                         width: max-content;
                         padding: 2px 10px;
                         margin-left: -10px;
                         margin-bottom: 4px;
+
+                        position: absolute;
+                        top: -24px;
                         @include mq(mobileLandscape) {
                             margin-left:0;
                         }
                         @include mq(desktop) {
+                            position: relative;
+                            top: unset;
                             font-size: 20px;
                             margin-left: 0;
                         }
@@ -114,19 +180,24 @@ $primaryColor:#F3D7B2;
                 }
                 &__inner {
                     font-family:$f-headline-full;
-                    font-weight: 400;
+                    font-weight: 500;
                     margin-right: 20px;
                     font-size: 20px;
                     line-height: 115%;
-                    padding-bottom: 40px;
+                    // padding-bottom: 40px;
+                    padding-bottom: 70px;
                     margin-bottom: 0;
                     padding-top: 2px;
                     @include mq(desktop) {
-                        width: 300px;
+                        width: 299px;
+                        padding-bottom: 130px;
                     }
                     @include mq(leftCol) {
                         border-left: 1px solid $black;
                         padding-left: 10px;
+                    }
+                    span {
+                        color: $red;
                     }
                 }
                 &__byline {
@@ -141,12 +212,17 @@ $primaryColor:#F3D7B2;
                 }
             }
         }
+
         .right {
             overflow: hidden;
-            position: relative;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            background-color: #0f0202;
             @include mq(desktop) {
                 width: 60%;
             }
+            
             .rain-wrapper {
                 @include mq(desktop) {
                     position: absolute;
@@ -158,9 +234,9 @@ $primaryColor:#F3D7B2;
             }
             img {
                 width: 100%;
-                height: 90vh;
+                height: 100vh;
                 object-fit: cover;
-                object-position: center;
+                object-position: bottom;
                 position: absolute;
                 @include mq(desktop) {
                     height: 100%;
@@ -184,27 +260,20 @@ $primaryColor:#F3D7B2;
                     animation-fill-mode: forwards;
                 }
             }
+
+            &.inView {
+                .image-wrapper, .rain-wrapper {
+                    opacity: 0.4;
+                    transition: opacity 0.2s ease;
+                    @include mq(desktop) {
+                        opacity: 1;
+                    }
+                }
+            }
         }
     }
 }
 
-audio {
-    width: 100%;
-    &::-webkit-media-controls-timeline {
-        padding-top: 12px;
-        padding-bottom: 12px;
-    }
-    &::-webkit-media-controls-panel {
-        background: $primaryColor;
-        border-radius: none;
-    }
-    &::-webkit-media-controls-panel {
-        padding: 0;
-    }
-    &::-webkit-media-controls-current-time-display, &::-webkit-media-controls-time-remaining-display {
-        font-family: $f-sans-serif-text;
-    }
-}
 
 .content__wrapper {
     position: relative;
@@ -217,41 +286,135 @@ audio {
         background: $primaryColor;
         border-top: 1px solid $black;
         padding-bottom: 8px;
+        position: relative;
+        z-index: 10000;
         h3 {
             font-family:$f-serif-headline;
             font-size: 20px;
             line-height: 115%;
-            font-weight: bold;
+            font-weight: 500;
             &:last-child {
-                font-weight: 500;
+                // font-weight: 200;
+                color: $red;
             }
         }
     }
     .audio-wrapper {
         background: $primaryColor;
         border-bottom: 1px solid $black;
+        position: relative;
+        z-index: 5;
+        &.stick-me {
+            position: sticky;
+            top: 0;
+            // z-index: 3;
+        }
+        .audio-player {
+            &.content__main-column::before {
+                    z-index: 5; 
+            }
+            width: 100%;
+          
+            font-family: $f-sans-serif-text;
+            color: $black;
+            font-size: 15px;
+            padding: 4px 0 8px 0;
+            .controls {
+                display: flex;
+                align-items: center;
+                .toggle-play {
+                    border: 1px solid black;
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    margin-right: 10px;
+                    svg {
+                        margin: auto;
+                        width:30px;
+                        transition: all 0.3s ease;
+                    } 
+                    &:hover {
+                        svg {
+                            transform:scale(1.1);
+                        }
+                    }
+                    &.play {
+                        cursor: pointer;
+                        position: relative;
+                        left: 0;
+                        
+                        
+                        .play-icon {
+                            display: block;
+                            padding-left: 4px;
+                        }
+                        .pause-icon {
+                            display: none;
+                        }
+                    }
+                    &.pause {
+                        cursor: pointer;
+                        position: relative;
+                        .play-icon {
+                        display: none;
+                        }
+                        .pause-icon {
+                            display: block;
+                        }
+                    }
+                }
+                .audio-right {
+                    width: 100%;
+                    .timeline {
+                        background: #121212;
+                        width: 100%;
+                        position: relative;
+                        cursor: pointer;
+                        height: 4px;
+                        margin-bottom: 8px;
+                        .progress {
+                            background: $red;
+                            width: 0%;
+                            height: 100%;
+                            transition: 0.25s;
+                        }
+                    }
+                    .time {
+                        display: flex;
+                        margin-right: 8px;
+                        min-width: 100px;
+                    }
+                }
+              
+              
+            }
+          }
     }
     p {
         font-family:$f-serif-text;
+        font-size: 17px;
         line-height: 150%;
         color: $black;
         padding-bottom: 8px;
         position: relative;
         z-index: 2;
-        background-color: white;
+        background-color: $mainBackground;
         margin:0 -10px;
-        padding: 0 10px 12px;     
+        padding: 0 10px 12px;    
+        -webkit-transform: translate3d(0,0,0); 
         @include mq(desktop) {
             background-color: unset;
             margin: unset;
             padding: unset;
+            padding-bottom: 12px;
         }   
         &::first-letter {
-            margin-left: 20px;
+            margin-left: 24px;
         }
         &.dropcap-me:first-letter {
             font-family: $f-titlepiece;
-            font-size: 120px;
+            font-size: 115px;
             line-height: 0.8;
             font-weight: bold;
             float: left;
@@ -263,7 +426,73 @@ audio {
                 line-height: 1;
             }
         }
+
+        &.dinkus {
+            font-family:$f-headline-full;
+            font-weight: 200;
+            font-size: 44px;
+            letter-spacing: 6px;
+            line-height: 1.8;
+            padding-bottom: 0;
+        }
+        &.no-indent {
+            &::first-letter {
+                margin-left: 0;
+            }
+        }
+
+        &.endNote {
+            font-family: $f-sans-serif-text;
+            padding-bottom: 48px;
+            padding-top: 30px;
+            &::first-letter {
+                margin-left: 0;
+            }
+            &::before {
+                content: '';
+                width: 13px;
+                height: 13px;
+                background-color: $red;
+                border-radius: 50%;
+                display: inline-block;
+                margin-right: 4px;
+            }
+            a {
+                text-decoration: none;
+                color: $red;
+                border-bottom: 1px solid #AB061330;
+                &:hover {
+                    border-bottom: 1px solid $red;
+                }
+            }
+        }
         
+    }
+    .pullQuote {
+        position: relative;
+        z-index: 4;
+        font-family: "Guardian Egyptian Web", Georgia, serif;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 115%;
+        background-color: #FBF6EF;
+        color: $red;
+        border-top: 4px solid $red;
+        padding: 0 4px 0 0px;
+        margin-right: 10px;
+        margin-bottom: 8px;
+        margin-top: 8px;
+        float: left;
+        width: 50%;
+        @include mq(tablet) {
+            width: 270px;
+        }
+        svg {
+            margin-right: 4px;
+        }
+        // &::before {
+        //     content
+        // }
     }
     .inline-pic {
         width: calc(100% + 20px);
@@ -284,17 +513,66 @@ audio {
             width: 80%;
             margin-left: -230px;
         }
+        img {
+            width: 100%;
+            height: 100%;
+        }
         &.stick-me {
             top: 0;
             z-index: 1;
+            position: -webkit-sticky;
+            position: sticky;
             @include mq(desktop) {
                 position: relative;
-                top: unset;
+                top: unset!important;
             }
         }
     }
+    .caption {
+        font-family: $f-sans-serif-text;
+        color: $black;
+        font-size:12px;
+        display: block;
+        background-color: $mainBackground;
+        margin-top: -4px;
+        padding: 4px 8px 12px 10px;
+        @include mq(desktop) {
+            padding-left: 4px;
+        }
+    }
+
+    
 }
 
+
+
+
+@keyframes drop {
+    0% {
+        transform: translateY(0vh);
+    }
+    75% {
+        transform: translateY(90vh);
+    }
+    100% {
+        transform: translateY(90vh);
+    }
+}
+
+@keyframes stem {
+    0% {
+        opacity: 1;
+    }
+    65% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
 
   
@@ -304,7 +582,7 @@ audio {
     width: 160%;
     height: 40%;
     z-index: 2;
-    transform: rotate(15deg);
+    transform: rotate(18deg);
 }
 
 .rain.back-row {
@@ -327,71 +605,152 @@ audio {
     animation: drop 0.5s linear infinite;
 }
 
-@keyframes drop {
-    0% {
-        transform: translateY(0vh);
-    }
-    75% {
-        transform: translateY(90vh);
-    }
-    100% {
-        transform: translateY(90vh);
-    }
-}
+
 
 .stem {
-    width: 5px;
-    height: 60%;
+    width: 4px;
+    height: 80%;
     margin-left: 7px;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
+    // background-color: #99999950;
     animation: stem 0.5s linear infinite;
 }
 
-@keyframes stem {
-    0% {
-        opacity: 1;
+
+
+
+.onward-journeys {
+    border-top: 4px solid $red;
+    padding-bottom: 40px;
+    font-family:$f-headline-full;
+    position: relative;
+    z-index: 5;
+    background-color: $mainBackground;
+    width: 100vw;
+    margin-left: -10px;
+    padding: 0 10px;
+    @include mq(mobileLandscape) {
+        margin-left: -20px;
+        padding: 0 20px;
     }
-    65% {
-        opacity: 1;
+
+    @include mq(desktop) {
+        width: calc(100% + 20px);
+        padding:0 0 0 20px;
     }
-    75% {
-        opacity: 0;
+
+
+    @include mq(leftCol) {
+        margin-left: -10px;
+        padding-left: 10px;
     }
-    100% {
-        opacity: 0;
+    @include mq(leftCol) {
+		&::before {
+			content:'';
+			width: 1px;
+			position: absolute;
+			left: 0px;
+			top: 0;
+			bottom: 0;
+			background-color: #121212;
+		}
+    }
+    h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+        line-height: 115%;
+        font-weight: 700;
+    }
+    .lecarre-links {
+        display: flex;
+        .card-wrapper {
+            margin-bottom: 12px;
+            &:hover {
+                cursor: pointer;
+                background-color: #12121210;
+                transition: background-color 0.5s ease;
+            }
+            width: 50%;
+            padding-bottom: 20px;
+            // display: flex;
+            &:nth-child(1) {
+                margin-right: 10px;
+                @include mq(tablet) {
+                    margin-right: 20px;
+                }
+            }
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                margin-right: 8px;
+            }
+            h3 {
+                font-size: 20px;
+                font-weight: 500;
+                padding: 0 4px;
+            }
+        }
     }
 }
 
-.splat {
-    width: 15px;
-    height: 10px;
-    border-top: 2px dotted rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    opacity: 1;
-    transform: scale(0);
-    animation: splat 0.5s linear infinite;
+
+
+
+#sub-nav-root {
     display: none;
 }
 
-.splat-toggle .splat {
-    display: block;
-}
 
-@keyframes splat {
-    0% {
-        opacity: 1;
-        transform: scale(0);
+
+
+
+
+
+
+
+
+  // for apps adds extra padding. Needed to make dark mode work
+.ios, .android {
+    .interactive-atom {
+        padding: 0px;
     }
-    80% {
-        opacity: 1;
-        transform: scale(0);
+    .header__inner .left {
+        h2 {
+            margin-top: 0;
+            margin-bottom: -4px;
+        }
+        h1 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
     }
-    90% {
-        opacity: 0.5;
-        transform: scale(1);
+    .standfirst {
+        &__tag {
+            p {
+                margin-top: 0!important;
+                top: -28px!important;
+            }
+        }
+        &__inner {
+            margin-top: 0!important;
+        }
     }
-    100% {
-        opacity: 0;
-        transform: scale(1.5);
+    .audio-label {
+        h3 {
+            margin-top: 0;
+            margin-bottom: 4px;
+        }
+    }
+    .onward-journeys {
+        width: 100%!important;
+        .title {
+            margin-top: 4px!important;
+        }
+        .card-wrapper {
+            h3 {
+                margin-top: 4px!important;
+            }
+        }
     }
 }

@@ -1,5 +1,7 @@
 // To enable support for browsers that do not support @media queries,
 // (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false
+// (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false
+// (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false
 // Create a separate stylesheet served exclusively to these browsers,
 // meaning @media queries will be rasterized, relying on the cascade itself
 $mq-responsive: true;
@@ -9,6 +11,8 @@ $mq-responsive: true;
 // stakeholders, designers, developers, and testers.
 $mq-breakpoints: (
     mobile:  320px,
+    mobileMedium:  375px,
+    phablet:  660px,
     tablet:  740px,
     desktop: 980px,
     leftCol: 1140px,

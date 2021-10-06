@@ -2,12 +2,18 @@
     <div class="header__wrapper">
         <div class="header__inner gs-container__top">
             <div class="left">
-                <h1>Lorem ipsum sit amen</h1>
+                <div class="text-wrapper">
+                    <div>
+                        <h2>Exclusive extract</h2>
+                        <h1>Silverview</h1>
+                        <h2>The final novel by <span>John le Carré</span></h2>
+                    </div>
+                </div>
                 <div class="standfirst">
                     <div class="standfirst__tag">
                         <p>Books</p>
                     </div>
-                    <p class="standfirst__inner">The transformation of Greta Thunberg<br> <span class="standfirst__byline">Words: <a href="https://www.theguardian.com/profile/simonhattenstone">Simon Hattenstone</a><br>Portraits: Marcus Ohlsson</span></p>
+                    <p class="standfirst__inner">Morals and duty clash in le Carré’s tale of a bookseller caught in a spy leak. Read the first chapter<br><span>Illustrations: Bill Bragg</span></p>
                 </div>
             </div>
             <div class="right">
@@ -17,9 +23,11 @@
                         <div class="rain back-row"></div>
                     </div>
                 </div>
-                <img class="frame-one" src="<%= path %>/billbragg-test.jpg" alt="">
-                <img class="frame-two" src="<%= path %>/billbragg-test-2.jpg" alt="">
-                <img class="frame-three" src="<%= path %>/billbragg-test-3.jpg" alt="">
+                <div class="image-wrapper">
+                    <img class="frame-one" src="<%= path %>/billbragg-test.jpg" alt="">
+                    <img class="frame-two" src="<%= path %>/billbragg-test-2.jpg" alt="">
+                    <img class="frame-three" src="<%= path %>/billbragg-test-3.jpg" alt="">
+                </div>
             </div>
         </div>
     </div>
@@ -29,33 +37,74 @@
             <div class="gs-container">
                 <div class="content__main-column">
                     <h3>Listen to the audio version</h3>
-                    <h3>Narrated by Firstname Surname</h3>
+                    <h3>Narrated by Toby Jones</h3>
                 </div>
             </div>
         </div>
         <div class="audio-wrapper">
             <div class="gs-container">
-                <audio id="player" class="content__main-column" src="<%= path %>/silverview-chapter-one.mp3" type="audio/mpeg" controls="controls" controlsList="nodownload"></audio>
+                <div class="audio-player content__main-column">
+                    
+                    <div class="controls">
+                      <div class="play-container">
+                        <div class="toggle-play play">
+                            <svg class="play-icon" width="27" height="23" viewBox="0 0 27 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M26.6218 12.0689V10.9314L1.2719 0.450195L0.337524 1.18144V21.8189L1.2719 22.4689L26.6218 12.0689Z" fill="#AB061C"/>
+                            </svg>                                
+                            <svg class="pause-icon" width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6 0H1.5L0 1.57143V22H6V0Z" fill="#AB061C"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M13 22H17.5L19 20.4286V0H13V22Z" fill="#AB061C"/>
+                            </svg>
+                                
+                      </div>
+                      </div>
+                      <div class="audio-right">
+                        <div class="timeline">
+                            <div class="progress"></div>
+                          </div>
+                        <div class="time">
+                            <div class="current">0:00</div>
+                            <div class="divider">/</div>
+                            <div class="length"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                <!-- <audio id="player" class="content__main-column" src="<%= path %>/silverview-chapter-one.mp3" type="audio/mpeg" controls="controls" controlsList="nodownload" controlsList="novolume">Your browser does not support the audio element.</audio> -->
             </div>
         </div>
         <div class="gs-container">
             <div class="content__main-column">
-                <p class="dropcap-me">At ten o’clock of a rainswept morning in London’s West End, a young woman in a baggy anorak, a woollen scarf pulled up around her head, strode resolutely into the storm that was roaring down South Audley Street. Her name was Lily and she was in a state of emotional anxiety which at moments turned to outrage. With one mittened hand she shielded her eyes from the rain while she glowered at door numbers, and with the other steered a plastic-covered pushchair that contained Sam, her two-year- old son. Some houses were so grand they had no numbers at all. Others had numbers but belonged to the wrong street.</p>
-                <p>Arriving at a pretentious doorway with its number painted with unusual clarity on one pillar, she climbed the steps backwards, hauling the pushchair after her, scowled at a list of names beside the owners’ bell buttons, and jabbed the lowest.</p>
-                <p>‘Just give the door a push, dear,’ a kindly woman’s voice advised her over the speaker.</p>
-                <p>‘I need Proctor. She said Proctor or no one,’ Lily said, straight back.</p>
-                <p>‘Stewart’s on his way now, dear,’ the same soothing voice announced, and seconds later the front door opened to reveal a stalky, bespectacled man in his mid-fifties, with a leftward lean to his body, and a long beakish head tilted in semi- humorous enquiry. A matronly woman with white hair and a cardigan stood at his shoulder.</p>
-                <p>At ten o’clock of a rainswept morning in London’s West End, a young woman in a baggy anorak, a woollen scarf pulled up around her head, strode resolutely into the storm that was roaring down South Audley Street. Her name was Lily and she was in a state of emotional anxiety which at moments turned to outrage. With one mittened hand she shielded her eyes from the rain while she glowered at door numbers, and with the other steered a plastic-covered pushchair that contained Sam, her two-year- old son. Some houses were so grand they had no numbers at all. Others had numbers but belonged to the wrong street.</p>
-                <p>Arriving at a pretentious doorway with its number painted with unusual clarity on one pillar, she climbed the steps backwards, hauling the pushchair after her, scowled at a list of names beside the owners’ bell buttons, and jabbed the lowest.</p>
-                <p>‘Just give the door a push, dear,’ a kindly woman’s voice advised her over the speaker.</p>
-                <img class="inline-pic stick-me" src="<%= path %>/billbragg-test-dropin.jpg" alt="">
-                <p>‘I need Proctor. She said Proctor or no one,’ Lily said, straight back.</p>
-                <p>‘Stewart’s on his way now, dear,’ the same soothing voice announced, and seconds later the front door opened to reveal a stalky, bespectacled man in his mid-fifties, with a leftward lean to his body, and a long beakish head tilted in semi- humorous enquiry. A matronly woman with white hair and a cardigan stood at his shoulder.</p>
-                <p>At ten o’clock of a rainswept morning in London’s West End, a young woman in a baggy anorak, a woollen scarf pulled up around her head, strode resolutely into the storm that was roaring down South Audley Street. Her name was Lily and she was in a state of emotional anxiety which at moments turned to outrage. With one mittened hand she shielded her eyes from the rain while she glowered at door numbers, and with the other steered a plastic-covered pushchair that contained Sam, her two-year- old son. Some houses were so grand they had no numbers at all. Others had numbers but belonged to the wrong street.</p>
-                <p>Arriving at a pretentious doorway with its number painted with unusual clarity on one pillar, she climbed the steps backwards, hauling the pushchair after her, scowled at a list of names beside the owners’ bell buttons, and jabbed the lowest.</p>
-                <p>‘Just give the door a push, dear,’ a kindly woman’s voice advised her over the speaker.</p>
-                <p>‘I need Proctor. She said Proctor or no one,’ Lily said, straight back.</p>
-                <p>‘Stewart’s on his way now, dear,’ the same soothing voice announced, and seconds later the front door opened to reveal a stalky, bespectacled man in his mid-fifties, with a leftward lean to his body, and a long beakish head tilted in semi- humorous enquiry. A matronly woman with white hair and a cardigan stood at his shoulder.</p>
+                {{ #Content }}
+                {{ #paragraph }}
+                <p class="{{ dropcap }}">{{{ paragraph }}}</p>
+                {{ /paragraph }}
+                {{ #inlineImage }}
+                <div class="inline-pic stick-me">
+                    <img src="{{ inlineImage }}" alt="{{ inlineImageCaption }}">
+                    <!-- <small class="caption">{{ inlineImageCaption }}</small> -->
+                </div>
+                {{ /inlineImage }}
+                {{ #pullQuote }}
+                <h2 class="pullQuote"><svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.50566 0H10.4815C9.88255 4.74547 9.35272 9.39878 9.12235 14.605H0C0.829305 9.53701 2.55702 4.74547 5.50566 0ZM17.0933 0H22C21.4702 4.74547 20.8712 9.39878 20.6409 14.605H11.5416C12.486 9.53701 14.1446 4.74547 17.0933 0Z" fill="#8B0000"/>
+                    </svg>{{ pullQuote }}</h2>
+                {{ /pullQuote }}
+                {{ /Content }}
+
+                <div class="onward-journeys">
+                    <h3 class="title">More from John le Carré</h3>
+                    <div class="lecarre-links">
+                        <a src="https://www.theguardian.com/p/jxmnv" class="card-wrapper" data-link-name="lecarre onward link 1">
+                            <img src="https://media.guim.co.uk/bef8c5e0ace80fb146b4c8b5e322b3c3c1c1db25/705_1273_4765_2858/1000.jpg" alt="">
+                            <h3>Fintan O’Toole on John le Carré’s final twist: dying as an Irishman</h3>
+                        </a>
+                        <a src="https://www.theguardian.com/p/tzb5k" class="card-wrapper" data-link-name="lecarre onward link 2">
+                            <img src="https://media.guim.co.uk/faf76e9097ff3389d2e3610f3669363c462bfeff/324_152_4218_2531/1000.jpg" alt="">
+                            <h3>‘The twists and turns are riveting’: Stephen King, Paula Hawkins and others on their favourite le Carré</h3>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

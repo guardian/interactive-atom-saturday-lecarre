@@ -27,6 +27,7 @@
 	}
 	@include mq(desktop) {
 		max-width: 980px;
+		padding: 0 0 0 20px;
 	}
 	@include mq(leftCol) {
 		max-width: 1140px;
@@ -47,17 +48,24 @@
     }
     @include mq(leftCol) {
         margin-left: 150px;
+		&::before {
+			content:'';
+			width: 1px;
+			position: absolute;
+			left: -10px;
+			top: 0;
+			bottom: 0;
+			background-color: #121212;
+		}
     }
     @include mq(wide) {
         margin-left: 230px;
     }
-	&::before {
-		content:'';
-		width: 1px;
-		position: absolute;
-		left: -10px;
-		top: 0;
-		bottom: 0;
-		background-color: #121212;
+	
+}
+
+.audio-label {
+	.gs-container .content__main-column::before {
+		bottom: -100px;
 	}
 }
