@@ -5,6 +5,7 @@
 // @import "enhancer";
 // gu_grid pulls the css for gs-container and content__main-column
 @import "gu_grid";
+@import "share";
 
 $black: #121212;
 $audioBackground:#fff;
@@ -64,6 +65,13 @@ $red: #AB0613;
                 height: 70vh;
                 margin-bottom: -30vh;
                 margin-top: -160px;
+                margin-top: -190px;
+                @include mq(mobileMedium) {
+                    margin-top: -210px;
+                }
+                @include mq(tablet) {
+                    margin-top: -240px;
+                }
                 div {
                     @include mq(desktop) {
                         margin: 40vh 0;
@@ -92,12 +100,15 @@ $red: #AB0613;
                         font-size: 76px;
                     }
                     @include mq(desktop) {
-                        font-size: 84px;
+                        font-size: 74px;
                         line-height: 115%;
                         padding: 0;
                         color: #121212;
                         width: 442px;
                         margin: 0;
+                    }
+                    @include mq(leftCol) {
+                        font-size: 84px;
                     }
                 }
                 h2 {
@@ -116,13 +127,17 @@ $red: #AB0613;
                         padding: 0 20px;
                     }  
                     @include mq(desktop) {
-                        font-size: 28px;
+                        font-size: 26px;
                         padding: 0;
                         color: #121212;
                     }  
+                    @include mq(leftCol) {
+                        font-size: 28px;
+                    }
                     span {
-                        // color: $red;
-                        // font-weight: 500;
+                        @include mq(desktop) {
+                            color: $red;
+                        }
                     }   
                     &:nth-child(1) {
                         font-style: italic;
@@ -180,15 +195,19 @@ $red: #AB0613;
                 }
                 &__inner {
                     font-family:$f-headline-full;
-                    font-weight: 500;
+                    font-weight: 400;
                     margin-right: 20px;
                     font-size: 20px;
                     line-height: 115%;
                     // padding-bottom: 40px;
-                    padding-bottom: 70px;
+                    padding-bottom: 60px;
                     margin-bottom: 0;
                     padding-top: 2px;
+                    @include mq(phablet) {
+                        padding-left: 10px;
+                    }
                     @include mq(desktop) {
+                        padding-left: 0;
                         width: 299px;
                         padding-bottom: 130px;
                     }
@@ -277,10 +296,66 @@ $red: #AB0613;
 
 .content__wrapper {
     position: relative;
+    .show-mobile {
+        display: block;
+        @include mq(leftCol) {
+            display:none;
+        }
+    }
+    .show-leftcol {
+        display: none;
+        @include mq(leftCol) {
+            display:block;
+        }
+    }
+    .meta__wrapper {
+        p::first-letter {
+            margin-left: 0;
+        }
+        @include mq(leftCol) {
+            float: left;
+            margin-left: -150px;
+            max-width: 130px;
+        }
+        @include mq(wide) {
+            margin-left: -230px;
+            max-width: unset;
+            min-width: 210px;
+        }
+        &.show-mobile {
+            padding: 0 10px;
+            background-color: $primaryColor;
+            border-top: 1px solid $black;
+            @include mq(mobileLandscape) {
+                padding:0 20px;
+            }
+            .meta__extras {
+                margin-bottom: 0;
+                border-bottom: none;
+                padding-bottom: 8px;
+            }
+            .content__dateline {
+                padding-bottom: 0;
+                padding-top: 4px;
+                background-color: $primaryColor;
+            }
+        }
+        &.show-leftcol {
+            .content__dateline {
+                padding-top: 4px;
+                padding-bottom: 8px;
+            }
+        }
+    }
+
+
     .stick-me {
         position: sticky;
         top: 0;
-        z-index: 3;
+        z-index: 2;
+        @include mq(desktop) {
+            z-index: 3;
+        }
     }
     .audio-label {
         background: $primaryColor;
@@ -289,10 +364,10 @@ $red: #AB0613;
         position: relative;
         z-index: 10000;
         h3 {
-            font-family:$f-serif-headline;
+            font-family:$f-headline-full;
             font-size: 20px;
             line-height: 115%;
-            font-weight: 500;
+            font-weight: 400;
             &:last-child {
                 // font-weight: 200;
                 color: $red;
@@ -303,7 +378,7 @@ $red: #AB0613;
         background: $primaryColor;
         border-bottom: 1px solid $black;
         position: relative;
-        z-index: 5;
+        z-index: 10;
         &.stick-me {
             position: sticky;
             top: 0;
@@ -323,7 +398,7 @@ $red: #AB0613;
                 display: flex;
                 align-items: center;
                 .toggle-play {
-                    border: 1px solid black;
+                    border: 1px solid $black;
                     border-radius: 50%;
                     width: 50px;
                     height: 50px;
@@ -367,7 +442,7 @@ $red: #AB0613;
                 .audio-right {
                     width: 100%;
                     .timeline {
-                        background: #121212;
+                        background: #12121250;
                         width: 100%;
                         position: relative;
                         cursor: pointer;
@@ -415,15 +490,17 @@ $red: #AB0613;
         &.dropcap-me:first-letter {
             font-family: $f-titlepiece;
             font-size: 115px;
-            line-height: 0.8;
+            line-height: 0.9;
             font-weight: bold;
             float: left;
             margin-top: -1px;
             margin-right: 8px;
             margin-left: 0;
+            margin-bottom: -20px;
             @include mq(desktop) {
-                margin-top: -12px;
-                line-height: 1;
+                margin-bottom: -15px;
+                margin-top: -15px;
+                line-height: 1.1;
             }
         }
 
@@ -498,7 +575,7 @@ $red: #AB0613;
         width: calc(100% + 20px);
         height: 100%;
         margin-left: -10px;
-        @include mq(desktop) {
+        @include mq(tablet) {
             float: left;
             margin-right: 10px;
             width: 60%;
@@ -519,12 +596,15 @@ $red: #AB0613;
         }
         &.stick-me {
             top: 0;
-            z-index: 1;
+            z-index: 2;
             position: -webkit-sticky;
             position: sticky;
-            @include mq(desktop) {
+            @include mq(tablet) {
                 position: relative;
                 top: unset!important;
+                z-index: 3;
+            }
+            @include mq(desktop) {
             }
         }
     }
@@ -575,6 +655,7 @@ $red: #AB0613;
 }
 
 
+
   
 .rain {
     position: absolute;
@@ -594,6 +675,10 @@ $red: #AB0613;
 
 .back-row-toggle .rain.back-row {
     display: block;
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 0.2s;
+    animation-delay: 0.3s;
 }
 
 .drop {
@@ -633,13 +718,13 @@ $red: #AB0613;
         margin-left: -20px;
         padding: 0 20px;
     }
-
+    @include mq(tablet) {
+        width:calc(100vw - 40px);
+    }
     @include mq(desktop) {
         width: calc(100% + 20px);
         padding:0 0 0 20px;
     }
-
-
     @include mq(leftCol) {
         margin-left: -10px;
         padding-left: 10px;
@@ -665,6 +750,8 @@ $red: #AB0613;
         display: flex;
         .card-wrapper {
             margin-bottom: 12px;
+            text-decoration: none;
+            color: $black;
             &:hover {
                 cursor: pointer;
                 background-color: #12121210;
@@ -675,9 +762,6 @@ $red: #AB0613;
             // display: flex;
             &:nth-child(1) {
                 margin-right: 10px;
-                @include mq(tablet) {
-                    margin-right: 20px;
-                }
             }
             img {
                 width: 100%;
@@ -752,5 +836,13 @@ $red: #AB0613;
                 margin-top: 4px!important;
             }
         }
+    }
+
+    .meta__extras {
+        display: none!important;
+
+    }
+    .content__dateline {
+        padding-bottom: 8px!important;
     }
 }
